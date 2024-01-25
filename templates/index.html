@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Crop Prediction</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  </head>
+  <body>
+
+       <!-- Navigation Bar -->
+       <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <!-- Brand/logo -->
+            <a class="navbar-brand" href="#"><img src="../static/crop-1.webp" alt="Your Logo/Brand"
+                    style="width: 150px; height: 50px" /></a>
+
+            <!-- Toggle button for small screens -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navigation Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- All Links on the Right Side -->
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <h1 class="text-center text-success">Crop Yield Prediction Per Country</h1>
+<!--	Year	average_rain_fall_mm_per_year	pesticides_tonnes	avg_temp	Area	Item-->
+  <div class="container my-4 mt-4" style="background-color: rgba(0, 0, 0, 0.5); border-radius: 20px; color:white">
+
+    <h1 class="text-center text-danger">Input Features Here</h1>
+
+    <form action="/predict" method="post">
+    <div class="form-group">
+        <label for="Year">Year</label>
+        <input type="number" class="form-control" name="Year" step="any" >
+    </div>
+    <div class="form-group">
+        <label for="average_rain_fall_mm_per_year">average_rain_fall_mm_per_year</label>
+        <input type="number" class="form-control" name="average_rain_fall_mm_per_year" step="any" >
+    </div>
+    <div class="form-group">
+        <label for="pesticides_tonnes">pesticides_tonnes</label>
+        <input type="number" class="form-control" name="pesticides_tonnes" step="any" >
+    </div>
+    <div class="form-group">
+        <label for="avg_temp">avg_temp</label>
+        <input type="number" class="form-control" name="avg_temp" step="any">
+    </div>
+    <div class="form-group">
+        <label for="Area">Area</label>
+        <input type="text" class="form-control" name="Area" >
+    </div>
+    <div class="form-group">
+        <label for="Item">Item</label>
+        <input type="text" class="form-control" name="Item" >
+    </div>
+    <button type="submit" class="btn btn-danger btn-lg mt-2 btn-block">Predict</button>
+</form>
+
+
+      {% if prediction %}
+      <h1 class="text-center"> Predicted Yield: <br>{{prediction}}</h1>
+
+      {% endif %}
+</div>
+
+<!-- About Us Section -->
+<section id="about" class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+  
+        <img src="../static/crop-1.webp" alt="About Us Image" class="img-fluid" />
+      </div>
+      <div class="col-md-6">
+        <h2 class="text-center">About Us</h2>
+        <p>
+          Welcome to our XYZ Platform, where innovation intersects with
+          agriculture to revolutionize the way we predict crop yield. We are
+          a team of passionate individuals dedicated to harnessing the power
+          of data mining and climate data to empower farmers, agricultural
+          professionals, and decision-makers with accurate and insightful
+          predictions.
+        </p>
+        <p>
+          At our XYZ Platform, our mission is to contribute to global food
+          security by leveraging cutting-edge technologies in data science
+          and climate analysis. We believe that arming the agricultural
+          community with precise crop yield predictions can lead to more
+          informed decision-making, optimal resource allocation, and
+          sustainable farming practices.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="footer" id="footer">
+  <footer class="text-center text-lg-start bg-light text-muted">
+      <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+          <div class="me-5 d-none d-lg-block">
+              <span>Get connected with us on social networks:</span>
+          </div>
+          <div>
+              <a href="#" class="me-4 text-reset">
+                  <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="me-4 text-reset">
+                  <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="me-4 text-reset">
+                  <i class="fab fa-google"></i>
+              </a>
+              <a href="#" class="me-4 text-reset">
+                  <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#" class="me-4 text-reset">
+                  <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="#" class="me-4 text-reset">
+                  <i class="fab fa-github"></i>
+              </a>
+          </div>
+      </section>
+
+      <section class="py-4">
+          <div class="container text-center">
+              <p class="mb-0">© 2024 Crop Prediction. All rights reserved.</p>
+          </div>
+      </section>
+  </footer>
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  </body>
+</html>
